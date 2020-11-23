@@ -24,7 +24,6 @@
     - Tras personalizar una imagen com *commit* podemos crear una nueva imagen. Ejemplo: **docker commit id_imagen_que_hemos_personalizado nombre_nueva_imagen**
 
 
-
   - **Contenedores:**
     - Listar:
       - Listar los que estan en ejecución **docker ps**
@@ -45,7 +44,9 @@
       - Detener un contenedor: **docker stop id**, ejemplo *docker stop 3fb*
       - Detener un contenedor desde sesión interactiva con **exit**
 
+
   - **dockerfile:**
-    - ![Componentes Dockerfile](https://github.com/sergioalegre/Dockers/blob/dockerfile_elementos.JPG?raw=true)
-    <br>
-    - ![Componentes Dockerfile](https://github.com/sergioalegre/Dockers/blob/dockerfile_ejemplo.JPG?raw=true)  
+    - El dockerfile se ha de llamar dockerfile
+    - docker build -t nombre_nuevo /ruta_completa_al_dockerfile/
+    - ![Componentes Dockerfile](https://github.com/sergioalegre/Dockers/blob/main/dockerfile_elementos.JPG?raw=true)
+    - ![Componentes Dockerfile](https://github.com/sergioalegre/Dockers/blob/main/dockerfile_ejemplo.JPG?raw=true)    
