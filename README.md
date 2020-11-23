@@ -1,6 +1,6 @@
 [#Conceptos](#Conceptos)
 
-[#Comandos básicos](#Comandos-basicos)
+[#Comandos](#Comandos)
 
 
 ------------
@@ -11,7 +11,7 @@
   - **dockerfile** archivo de texto con los comandos de personalización de una imagen.
 
 
-### Comandos-basicos
+### Comandos
 
   - **Docker Hub(DH):**
     - Buscar en DH: **docker search**
