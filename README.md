@@ -47,6 +47,9 @@
       - Detener un contenedor: **docker stop id**, ejemplo *docker stop 3fb*
       - Detener un contenedor desde sesión interactiva con **exit**
 
+    - Espacio:
+      - Espacio usado por imágenes y dockers: **docker system df -v** ![documentación](https://docs.docker.com/engine/reference/commandline/system_df/)
+
 
   - **dockerfile:**
     - El dockerfile se ha de llamar dockerfile
