@@ -48,7 +48,7 @@
       - Detener un contenedor desde sesión interactiva con **exit**
 
     - Espacio:
-      - Espacio usado por imágenes y dockers: **docker system df -v** ![documentación](https://docs.docker.com/engine/reference/commandline/system_df/)
+      - Espacio usado por imágenes y dockers: **docker system df -v** [Documentación](https://docs.docker.com/engine/reference/commandline/system_df/)
 
 
   - **dockerfile:**
