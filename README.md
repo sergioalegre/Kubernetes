@@ -4,10 +4,12 @@
 
 [#Monitorizacion](#Monitorizacion)
 
-
+[#Backup-Restore](#Backup-Restore)
 
 ------------
+
 ### Conceptos
+
   - **TAG** es como las versiones de una imagen. Una imagen puede tener varios tags.
   - Una **imagen** puede estar hecha de varias imagenes a la su vez por ello cuando hacemos un pull de una imagen hay varias descargas que hacer.
   - No todos los dockers son interactivos, no todos tienen un CLI que lo permita personalizar.
@@ -54,9 +56,25 @@
   - **dockerfile:**
     - El dockerfile se ha de llamar dockerfile
     - docker build -t nombre_nuevo /ruta_completa_al_dockerfile/
-    - ![Componentes Dockerfile](https://github.com/sergioalegre/Dockers/blob/main/dockerfile_elementos.JPG?raw=true)
-    - ![Componentes Dockerfile](https://github.com/sergioalegre/Dockers/blob/main/dockerfile_ejemplo.JPG?raw=true)    
+    - ![Componentes Dockerfile](https://github.com/sergioalegre/Dockers/pics/blob/main/dockerfile_elementos.JPG?raw=true)
+    - ![Componentes Dockerfile](https://github.com/sergioalegre/Dockers/pics/blob/main/dockerfile_ejemplo.JPG?raw=true)    
 
 
 ### Monitorizacion
+
     - Glance: https://www.danielmartingonzalez.com/es/monitorizacion-del-sistema-con-glances/
+
+
+### Backup-Restore
+
+    - NOTA: esto solo hace backup del contenedor no de los volumenes, para saber si el contenedor tiene volumenes usar **docker inspect <nombre contenedor>** y buscar la sección llamada **Mounts**.
+
+    - Backup:
+      - Buscar el id del docker id del que hacer backup **sudo docker ps −a**
+      - **sudo docker commit −p <CONTAINER_ID> backup_grafana01**
+      - **sudo docker save −o /media/DISCO_USB_EXT/backup_grafana01.tar backup_grafana01**
+      - ![Componentes Dockerfile](https://github.com/sergioalegre/Dockers/pics/blob/main/backup-dockers.jpg?raw=true)
+
+    - Restore:
+      -Para restaurar **sudo docker load -i /media/DISCO_USB_EXT/backup_grafana01.tar**
+      - Nos cargará la imagen y ahora con **docker run** lo instanciaremos
