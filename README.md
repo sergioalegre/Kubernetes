@@ -56,8 +56,8 @@
   - **dockerfile:**
     - El dockerfile se ha de llamar dockerfile
     - docker build -t nombre_nuevo /ruta_completa_al_dockerfile/
-    - ![Componentes Dockerfile](https://github.com/sergioalegre/Dockers/pics/blob/main/dockerfile_elementos.JPG?raw=true)
-    - ![Componentes Dockerfile](https://github.com/sergioalegre/Dockers/pics/blob/main/dockerfile_ejemplo.JPG?raw=true)    
+    - ![Componentes Dockerfile](https://github.com/sergioalegre/Dockers/blob/main/pics/dockerfile_elementos.JPG?raw=true)
+    - ![Componentes Dockerfile](https://github.com/sergioalegre/Dockers/blob/main/pics/dockerfile_ejemplo.JPG?raw=true)    
 
 
 ### Monitorizacion
@@ -73,7 +73,7 @@
       - Buscar el id del docker id del que hacer backup **sudo docker ps −a**
       - **sudo docker commit −p <CONTAINER_ID> backup_grafana01**
       - **sudo docker save −o /media/DISCO_USB_EXT/backup_grafana01.tar backup_grafana01**
-      - ![Componentes Dockerfile](https://github.com/sergioalegre/Dockers/pics/blob/main/backup-dockers.jpg?raw=true)
+      - ![Componentes Dockerfile](https://github.com/sergioalegre/Dockers/blob/main/pics/backup-dockers.jpg?raw=true)
 
     - Restore:
       -Para restaurar **sudo docker load -i /media/DISCO_USB_EXT/backup_grafana01.tar**
