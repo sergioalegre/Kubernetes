@@ -78,3 +78,20 @@
   - Restore:
     -Para restaurar **sudo docker load -i /media/DISCO_USB_EXT/backup_grafana01.tar**
     - Nos cargará la imagen y ahora con **docker run** lo instanciaremos
+
+### Reinstalar (no se si pierde datos no volatiles, probado en un docker con datos volatiles)
+  - Ejemplo Portainer:
+  - step1. stop and delete container.
+  - **$sudo docker ps -a (to check container list)**
+  - **$sudo docker stop [container ID]**
+  - **$docker rm -v [container ID]**
+
+  - step2. delete image
+  - **$docker images (to check image ID)**
+  - **$docker rmi [image ID]**
+
+  - step3. delete volume
+  - **$docker volume rm portainer_data**
+
+  - step4. re-install portainer
+  - **$docker run -d -p 9000:9000 --name portainer --restart always -v /var/run/docker.sock:/var/run/docker.sock -v/data/portainer/data:/data portainer/portainer**
