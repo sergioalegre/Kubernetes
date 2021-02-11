@@ -6,6 +6,9 @@
 
 [#Backup-Restore](#Backup-Restore)
 
+[#Reinstalar](#Reinstalar)
+
+
 ------------
 
 ### Conceptos
@@ -79,7 +82,9 @@
     -Para restaurar **sudo docker load -i /media/DISCO_USB_EXT/backup_grafana01.tar**
     - Nos cargará la imagen y ahora con **docker run** lo instanciaremos
 
+
 ### Reinstalar (no se si pierde datos no volatiles, probado en un docker con datos volatiles)
+
   - Ejemplo Portainer:
   - step1. stop and delete container.
   - **$sudo docker ps -a (to check container list)**
