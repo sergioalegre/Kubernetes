@@ -120,3 +120,4 @@
     - si viene desde imagen: **kubectl delete deployment hello-http**
     - si viene desde yaml: **kubectl delete -f app.yml**
   - eliminar servicio expuesto: **kubectl delete service hello-http**
+  - listar namespaces **kubectl get namespaces**
