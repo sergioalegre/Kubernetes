@@ -47,7 +47,7 @@
   - https://www.phillipsj.net/posts/sql-server-on-linux-on-kubernetes-part-1/
   - https://www.phillipsj.net/posts/sql-server-on-linux-on-kubernetes-part-2/
 
-  1 POD:
+  #### 1 POD:
   - **storage.yaml** (contiene el Persistent Volume y el Persistent Volume Claim)
       ```
       apiVersion: v1
@@ -128,7 +128,7 @@
     - **kubectl apply -f sql-server.yaml**
     - los datos persistentes estarán en **/tmp/sqldata**
 
-    DEPLOYEMENT ESCALABLE (basado https://docs.microsoft.com/es-es/sql/linux/tutorial-sql-server-containers-kubernetes?view=sql-server-ver15):
+    #### DEPLOYEMENT ESCALABLE (basado https://docs.microsoft.com/es-es/sql/linux/tutorial-sql-server-containers-kubernetes?view=sql-server-ver15):
   - **storage.yaml** (contiene el Persistent Volume y el Persistent Volume Claim)
       ```
       apiVersion: v1
