@@ -131,33 +131,6 @@
     DEPLOYEMENT ESCALABLE (basado https://docs.microsoft.com/es-es/sql/linux/tutorial-sql-server-containers-kubernetes?view=sql-server-ver15):
   - **storage.yaml** (contiene el Persistent Volume y el Persistent Volume Claim)
       ```
-      apiVersion: v1
-      kind: PersistentVolume
-      metadata:
-        name: sqldatax3
-      spec:
-        capacity:
-          storage: 500Mi
-        storageClassName: sqlserver
-        accessModes:
-          - ReadWriteMany
-        hostPath:
-          path: "/tmp/sqldatax3"
-      ---
-      apiVersion: v1
-      kind: PersistentVolumeClaim
-      metadata:
-        name: dbclaimx3
-      spec:
-        accessModes:
-          - ReadWriteMany
-        storageClassName: sqlserver
-        resources:
-          requests:
-            storage: 400Mi      
-    ```  
-- **sql-server.yaml**
-      ```
       apiVersion: apps/v1
       kind: Deployment
       metadata:
