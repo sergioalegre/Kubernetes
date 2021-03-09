@@ -75,7 +75,7 @@
         requests:
           storage: 400Mi
       ```
-    - **sql-server.yaml**
+  - **sql-server.yaml**
       ```
       apiVersion: v1
       kind: Pod
@@ -155,8 +155,8 @@
         resources:
           requests:
             storage: 400Mi      
-    ```  
-- **sql-server.yaml**
+      ```  
+  - **sql-server.yaml**
       ```
       apiVersion: apps/v1
       kind: Deployment
