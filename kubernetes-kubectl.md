@@ -10,6 +10,8 @@
 [#namespaces](#namespaces)
 
 [#MSSQL_Server](#MSSQL_Server)
+    - ![1 Pod](https://github.com/sergioalegre/Dockers/blob/main/kubernetes-kubectl.md#1-pod)
+    - ![Deployment](https://github.com/sergioalegre/Dockers/blob/main/kubernetes-kubectl.md#deployement-escalable)
 
 
 ------------
@@ -128,7 +130,8 @@
     - **kubectl apply -f sql-server.yaml**
     - los datos persistentes estarán en **/tmp/sqldata**
 
-    #### DEPLOYEMENT ESCALABLE (basado https://docs.microsoft.com/es-es/sql/linux/tutorial-sql-server-containers-kubernetes?view=sql-server-ver15):
+    #### DEPLOYEMENT ESCALABLE
+    (basado https://docs.microsoft.com/es-es/sql/linux/tutorial-sql-server-containers-kubernetes?view=sql-server-ver15):
   - **storage.yaml** (contiene el Persistent Volume y el Persistent Volume Claim)
       ```
       apiVersion: v1
