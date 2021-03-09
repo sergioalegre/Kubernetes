@@ -10,12 +10,10 @@
 [#namespaces](#namespaces)
 
 [#MSSQL_Server](#MSSQL_Server)
-    - ![1 Pod](https://github.com/sergioalegre/Dockers/blob/main/kubernetes-kubectl.md#1-pod)
-    - ![Deployment](https://github.com/sergioalegre/Dockers/blob/main/kubernetes-kubectl.md#deployement-escalable)
-
+#### 1 Pod [1 Pod](https://github.com/sergioalegre/Dockers/blob/main/kubernetes-kubectl.md#1-pod "1 Pod")
+#### Deployment [Deployment](https://github.com/sergioalegre/Dockers/blob/main/kubernetes-kubectl.md#deployement-escalable "Deployment")
 
 ------------
-
 
 ### nodos
   - listar nodos **kubectl get nodes**
