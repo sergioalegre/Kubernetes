@@ -46,6 +46,8 @@
 ### MSSQL_Server
   - https://www.phillipsj.net/posts/sql-server-on-linux-on-kubernetes-part-1/
   - https://www.phillipsj.net/posts/sql-server-on-linux-on-kubernetes-part-2/
+
+  1 POD:
   - **storage.yaml** (contiene el Persistent Volume y el Persistent Volume Claim)
       ```
       apiVersion: v1
@@ -125,3 +127,91 @@
     - **kubectl apply -f storage.yaml**          
     - **kubectl apply -f sql-server.yaml**
     - los datos persistentes estarán en **/tmp/sqldata**
+
+    DEPLOYEMENT ESCALABLE (basado https://docs.microsoft.com/es-es/sql/linux/tutorial-sql-server-containers-kubernetes?view=sql-server-ver15):
+  - **storage.yaml** (contiene el Persistent Volume y el Persistent Volume Claim)
+      ```
+        apiVersion: v1
+        kind: PersistentVolume
+        metadata:
+          name: sqldatax3
+        spec:
+          capacity:
+            storage: 500Mi
+          storageClassName: sqlserver
+          accessModes:
+            - ReadWriteMany
+          hostPath:
+            path: "/tmp/sqldatax3"
+        ---
+        apiVersion: v1
+        kind: PersistentVolumeClaim
+        metadata:
+          name: dbclaimx3
+        spec:
+          accessModes:
+            - ReadWriteMany
+          storageClassName: sqlserver
+          resources:
+            requests:
+              storage: 400Mi      
+      ```  
+  - **sql-server.yaml**
+        ```
+        apiVersion: apps/v1
+        kind: Deployment
+        metadata:
+          name: mssql-deployment
+        spec:
+          replicas: 1
+          selector:
+             matchLabels:
+               app: mssql
+          template:
+            metadata:
+              labels:
+                app: mssql
+            spec:
+              terminationGracePeriodSeconds: 30
+              hostname: mssqlinst
+              securityContext:
+                fsGroup: 10001
+              containers:
+              - name: mssql
+                image: mcr.microsoft.com/mssql/server:2019-latest
+                ports:
+                - containerPort: 1433
+                env:
+                - name: MSSQL_PID
+                  value: "Developer"
+                - name: ACCEPT_EULA
+                  value: "Y"
+                - name: SA_PASSWORD
+                  valueFrom:
+                    secretKeyRef:
+                      name: mssql
+                      key: SA_PASSWORD
+                volumeMounts:
+                - name: mssqldb
+                  mountPath: /tmp/sqldatax3
+              volumes:
+              - name: mssqldb
+                persistentVolumeClaim:
+                  claimName: dbclaimx3
+        ---
+        apiVersion: v1
+        kind: Service
+        metadata:
+          name: mssql-deployment
+        spec:
+          selector:
+            app: mssql
+          ports:
+            - protocol: TCP
+              port: 1433
+              targetPort: 32000
+          type: LoadBalancer
+        ```
+  - **kubectl apply -f storage.yaml**          
+  - **kubectl apply -f sql-server.yaml**
+  - los datos persistentes estarán en **/tmp/sqldata**
