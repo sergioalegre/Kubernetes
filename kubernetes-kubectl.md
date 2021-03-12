@@ -1,19 +1,27 @@
 
+Apuntes curso Linux Foundation: https://docs.google.com/document/d/1NghuuHdenqE6dwJPv1xK1kWL0Nb4mCFvqXbcip2QlEY/edit#
+
+[#cluster](#cluster)
+
 [#nodos](#nodos)
 
 [#pods](#pods)
 
 [#deployments](#deployments)
 
-[#escalar/desescalar](#escalar/desescalar)
+[#ReplicaSet](#ReplicaSet)
 
 [#namespaces](#namespaces)
+
+[#ServiceTypes](#ServiceTypes)
 
 [#MSSQL_Server](#MSSQL_Server)
 #### [1 Pod](https://github.com/sergioalegre/Dockers/blob/main/kubernetes-kubectl.md#1-pod-1 "1 Pod")
 #### [Deployment](https://github.com/sergioalegre/Dockers/blob/main/kubernetes-kubectl.md#deployement-escalable "Deployment")
 
 ------------
+### cluster
+  - listar todo lo que haya en el cluster **kubectl get all**
 
 ### nodos
   - listar nodos **kubectl get nodes**
@@ -21,6 +29,8 @@
 
 ### pods  
   - listar pods **kubectl get pods**
+  - listar pods con label concreta **kubectl get pods -L <label1>**
+  - detalle pod **kubectl describe pod <nombre_pod>**
 
 ### deployments
   - desplegar una pod desde docker hub: **kubectl create deployment hello-http --image=httpd:latest**
@@ -31,7 +41,8 @@
   - listar servicios expuestos: **kubectl get services**
   - listar volumenes persistentes **kubectl get pv**
 
-### escalar/desescalar  
+### ReplicaSet
+  - listar replicasets existentes **kubectl get replicasets**
   - escalar/desescalar pod, hay que indicar el numero de replicas que queremos (hacia arriba o abajo) y el pod a escalar/desescalar: **kubectl scale deployment --replicas=3 hello-http**
   - comprobamos el resultado del escalado con **kubectl get pods**
   - ![kubectl](https://github.com/sergioalegre/Dockers/blob/main/pics/kubectl1.jpg?raw=true)
@@ -42,6 +53,10 @@
 
 ### namespaces  
   - listar namespaces **kubectl get namespaces**
+  - detalles del servicio **kubectl describe service <nombre_servicio>**
+
+### ServiceTypes
+  - listar servicios activos **kubectl get services**
 
 ### MSSQL_Server
   - https://www.phillipsj.net/posts/sql-server-on-linux-on-kubernetes-part-1/
