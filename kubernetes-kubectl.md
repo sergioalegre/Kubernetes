@@ -26,6 +26,7 @@ Apuntes curso Linux Foundation: https://docs.google.com/document/d/1NghuuHdenqE6
 ### nodos
   - listar nodos **kubectl get nodes**
   - detalle nodos **kubectl describe nodes**
+  - **configmap** son los pares clave-valor que permiten personalizar una imagen
 
 ### pods  
   - listar pods **kubectl get pods**
