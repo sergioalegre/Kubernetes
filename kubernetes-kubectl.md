@@ -1,6 +1,8 @@
 
 Apuntes curso Linux Foundation: https://docs.google.com/document/d/1NghuuHdenqE6dwJPv1xK1kWL0Nb4mCFvqXbcip2QlEY/edit#
-aaaaaaaaaaaaaaaaa
+
+cheatsheet: https://kubernetes.io/docs/reference/kubectl/cheatsheet/
+
 [#cluster](#cluster)
 
 [#nodos](#nodos)
@@ -14,6 +16,8 @@ aaaaaaaaaaaaaaaaa
 [#namespaces](#namespaces)
 
 [#ServiceTypes](#ServiceTypes)
+
+[#minikube](#minikube)
 
 [#MSSQL_Server](#MSSQL_Server)
 #### [1 Pod](https://github.com/sergioalegre/Dockers/blob/main/kubernetes-kubectl.md#1-pod-1 "1 Pod")
@@ -58,6 +62,11 @@ aaaaaaaaaaaaaaaaa
 
 ### ServiceTypes
   - listar servicios activos **kubectl get services**
+
+### minikube
+  - invocar un servicio **minikube service <nombre_servicio>**
+  - listar addons **minikube addons list**
+  - habilitar addon (en este ejemplo el addon ingress) **minikube addons enable ingress**
 
 ### MSSQL_Server
   - https://www.phillipsj.net/posts/sql-server-on-linux-on-kubernetes-part-1/
