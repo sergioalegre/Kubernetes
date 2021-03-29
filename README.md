@@ -15,9 +15,7 @@ REEMPLAZAR: Buscador-Ajax-similar-a-Google, TITULO, DESCRIPCION, DESCRIPCION2, D
   <p align="center">
     <!-- DESCRIPCION -->Apuntes de los cursos y practicas de Kubernetes e IaC
     <br />
-    <a href="https://github.com/sergioalegre/Kubernetes"><strong>Explore the docs »</strong></a>
-    <br />
-    <br />
+    <a href="https://github.com/sergioalegre/Kubernetes">Explore the docs</a>
     <!-- DEMO<a href="http://sergioalegre.es/Programacion/_BuscadorAJAX/">View Demo</a> -->
     ·
     <a href="https://github.com/sergioalegre/Kubernetes/issues">Report Bug</a>
@@ -28,7 +26,7 @@ REEMPLAZAR: Buscador-Ajax-similar-a-Google, TITULO, DESCRIPCION, DESCRIPCION2, D
 
 ## Kubernetes
 <!-- DESCRIPCION2 --> <!-- DEMO -->
-Kubernetes es un orquestador de contenedores de Google y es Open Source. Permite manejar aplicaciones dentro de contenedores a traves de varios servidores (físicos o virtuales).
+Solución de orquestación Open Source de contenedores de Google. Permite manejar aplicaciones dentro de contenedores a traves de varios servidores (físicos o virtuales).
 <br /><br />
 **Funcionalidades**:
 - Manejar muchos contenedores
@@ -37,17 +35,15 @@ Kubernetes es un orquestador de contenedores de Google y es Open Source. Permite
 - Escalar aplicación (para absorver mas tráfico)
 - Disaster recovery (ya que se basa en manifiestos declarativos)
 
-<br />
-<br />
-**Arquitectura**: hay dos componentes, el Master y los Workers.
-<br />
-Los workers corren un agente llamado *kubelet*.
-<br />
-El Master tiene varios servicios:
-- API SERVER: que los clientes interacciónen con el cluster (mediante WEB, API o comandos kubectl)
-- Controller Manager: responsable de lo que pasa en el cluster. Revisa los contenedores que estan corriendo frente a los contenedores que deberian estar corriendo.
-- Scheduler: recibe ordenes del Controller Manager responsable de mover pods entre Workers
-- etcd: base de datos del estado y configuraciones.
+<br /><br />
+**Arquitectura**:
+- Hay dos componentes, el Master y los Workers.
+-Los workers corren un agente llamado *kubelet*.
+- El Master tiene varios servicios:
+  - API SERVER: que los clientes interacciónen con el cluster (mediante WEB, API o comandos kubectl)
+  - Controller Manager: responsable de lo que pasa en el cluster. Revisa los contenedores que estan corriendo frente a los contenedores que deberian estar corriendo.
+  - Scheduler: recibe ordenes del Controller Manager responsable de mover pods entre Workers
+  - etcd: base de datos del estado y configuraciones.
 
 <br />
 <br />
