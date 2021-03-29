@@ -38,22 +38,20 @@ Solución de orquestación Open Source de contenedores de Google. Permite maneja
 <br /><br />
 **Arquitectura**:
 - Hay dos componentes, el Master y los Workers.
--Los workers corren un agente llamado *kubelet*.
+- Los workers corren un agente llamado *kubelet*.
 - El Master tiene varios servicios:
   - API SERVER: que los clientes interacciónen con el cluster (mediante WEB, API o comandos kubectl)
   - Controller Manager: responsable de lo que pasa en el cluster. Revisa los contenedores que estan corriendo frente a los contenedores que deberian estar corriendo.
   - Scheduler: recibe ordenes del Controller Manager responsable de mover pods entre Workers
   - etcd: base de datos del estado y configuraciones.
 
-<br />
-<br />
+<br /><br />
 **Pods**:
 - Set de contenedores con una sola IP (comparten el namespace de red).
 - Son volatiles: cuando actualizas el aplicativo se destruye el antiguo y crea uno nuevo. Por ello no hay que llamar a la IP del pod, hay que llamar a la IP del servicio.
 - Overlay network: red de comunicacion entre pods de diferentes workers (para trabajar juntos)
 
-<br />
-<br />
+<br /><br />
 **Servicios**:
 
 <p align="center">
