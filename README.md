@@ -10,10 +10,10 @@ REEMPLAZAR: Buscador-Ajax-similar-a-Google, TITULO, DESCRIPCION, DESCRIPCION2, D
     <img src="http://sergioalegre.es/logo.JPG" alt="Logo" width="80" height="80">
   </a>
 
-  <h3 align="center"><!-- TITULO -->Buscador AJAX similar a Google</h3>
+  <h3 align="center"><!-- TITULO -->Kubernetes e IaC</h3>
 
   <p align="center">
-    <!-- DESCRIPCION -->Buscador con AJAX y JQuery similar a Google para backend en MySQL
+    <!-- DESCRIPCION -->Apuntes de los cursos y practicas de Kubernetes e IaC
     <br />
     <a href="https://github.com/sergioalegre/Kubernetes"><strong>Explore the docs »</strong></a>
     <br />
@@ -26,9 +26,51 @@ REEMPLAZAR: Buscador-Ajax-similar-a-Google, TITULO, DESCRIPCION, DESCRIPCION2, D
   </p>
 </p>
 
-## About The Project & Demo link
+## Kubernetes
 <!-- DESCRIPCION2 --> <!-- DEMO -->
-Apuntes de los cursos y practicas de Kubernetes e IaC.
+Kubernetes es un orquestador de contenedores de Google y es Open Source. Permite manejar aplicaciones dentro de contenedores a traves de varios servidores (físicos o virtuales).
+<br />
+**Funcionalidades**:
+- Manejar muchos contenedores
+<br />
+- Alta disponibilidad
+<br />
+- Cero downtime (mediante replicas de la aplicación en diferentes nodos)
+<br />
+- Escalar aplicación (para absorver mas tráfico)
+<br />
+- Disaster recovery (ya que se basa en manifiestos declarativos)
+
+<br />
+<br />
+En cuanto a **arquitectura** hay dos componentes, el Master y los Workers.
+<br />
+Los workers corren un agente llamado *kubelet*.
+<br />
+El Master tiene varios servicios:
+<br />
+- API SERVER: que los clientes interacciónen con el cluster (mediante WEB, API o comandos kubectl)
+<br />
+- Controller Manager: responsable de lo que pasa en el cluster. Revisa los contenedores que estan corriendo frente a los contenedores que deberian estar corriendo.
+<br />
+- Scheduler: recibe ordenes del Controller Manager responsable de mover pods entre Workers
+<br />
+- etcd: base de datos del estado y configuraciones.
+
+<br />
+<br />
+**Pods**:
+<br />
+- Set de contenedores con una sola IP (comparten el namespace de red).
+<br />
+- Son volatiles: cuando actualizas el aplicativo se destruye el antiguo y crea uno nuevo. Por ello no hay que llamar a la IP del pod, hay que llamar a la IP del servicio.
+<br />
+- Overlay network: red de comunicacion entre pods de diferentes workers (para trabajar juntos)
+
+<br />
+<br />
+**Servicios**:
+
 <p align="center">
   <a href="https://github.com/sergioalegre/Kubernetes">
     <img src="http://sergioalegre.es/Programacion/_BuscadorAJAX/captura.PNG" alt="Logo" width="360" height="">
