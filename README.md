@@ -53,10 +53,21 @@ Solución de orquestación Open Source de contenedores de Google. Permite maneja
 
 <br /><br />
 **Servicios**:
+- Tipos:
+  - Cluster IP: el mas común, es una IP fija (para comunicarnos con un pod o comunicar pods entre sí). El servicio encuentra los pods gracias a etiquetas.
+  - Load Balancer: balanceador de cargar cloud.
+  - Ingress: reglas basadas en el subdominio.
+  - Node Port: crea un puerto en la APP para llegar a él.
 
+<br /><br />
+**Manifiestos**:
+- Un manifiesto contiene un *template* de la aplicación. Tambien llamados *deployement*. Un deployement en un template para crear pods.
+- Cuando se aplica el template, el Controller Manager se encarga de crear los pods en el cluster.
+
+<br /><br />
 <p align="center">
   <a href="https://github.com/sergioalegre/Kubernetes">
-    <img src="http://sergioalegre.es/Programacion/_BuscadorAJAX/captura.PNG" alt="Logo" width="360" height="">
+    <img src="https://github.com/sergioalegre/Kubernetes/blob/main/pics/kubectl1.jpg" alt="Logo" width="360" height="">
   </a>
 </p>
 
