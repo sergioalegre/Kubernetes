@@ -40,6 +40,7 @@ cheatsheet: https://kubernetes.io/docs/reference/kubectl/cheatsheet/
 ### deployments
   - desplegar una pod desde docker hub: **kubectl create deployment hello-http --image=httpd:latest**
   - detalle del pod que acabamos de desplegar **kubectl describe pod hello-http** . Nos dira IP, dockers que contiene, estado, eventos.
+  - log de un pod: **kubectl logs <pod_name> -f**
   - desplegar pod desde un .yml **kubectl apply -f fichero.yml**
   - eliminar despliegue desde .yml **kubectl delete -f sql-server.yaml**
   - exponer un pod hay que indicar el nombre del pod a exponer y el puerto: **kubectl expose deployment hello-http --type=LoadBalancer --port=80**
