@@ -54,6 +54,9 @@
     - Espacio:
       - Espacio usado por imágenes y dockers: **docker system df -v** [Documentación](https://docs.docker.com/engine/reference/commandline/system_df/)
 
+    - Saber la IP:
+      - **docker inspect -f '{{range .NetworkSettings.Networks}}{{.IPAddress}}{{end}}' <container_name_or_i>**
+
 
   - **dockerfile:**
     - El dockerfile se ha de llamar dockerfile
