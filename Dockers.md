@@ -37,7 +37,7 @@
       - Listar todos **docker ps -a**    
       - Si un docker se ejecuto pero termino (Status = EXITED) podemos ver su status y último comando con **docker ps -a**
 
-    - Iniciarrrr:
+    - Iniciar:
       - Iniciar un docker: **docker start imagen**
       - Ejecutar un docker **docker run imagen** si no tenia la imagen, la descarga. Con *--name* le ponemos nombre, ejemplo: *docker run --name PRUEBA1 ubuntu*    
       - Ejecutar un único comando dentro de un contenedor **docker run imagen comando** ejemplo: *docker run ubuntu ls-al* Pero despues de hacer el comando el docker se detendra
