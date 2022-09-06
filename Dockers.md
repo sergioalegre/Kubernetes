@@ -8,6 +8,7 @@
 
 [#Reinstalar](#Reinstalar)
 
+
 ------------
 
 ### Conceptos
@@ -41,6 +42,7 @@
       - Iniciar un docker: **docker start imagen**
       - Ejecutar un docker **docker run imagen** si no tenia la imagen, la descarga. Con *--name* le ponemos nombre, ejemplo: *docker run --name PRUEBA1 ubuntu*    
       - Ejecutar un único comando dentro de un contenedor **docker run imagen comando** ejemplo: *docker run ubuntu ls-al* Pero despues de hacer el comando el docker se detendra
+      - Montar un volumen de Windows **docker run -v C:\temp:/media python:miDocker**
 
     - Sesión interactiva:
         - **docker attach id**  ejemplo: *docker attach 1jh*
@@ -71,11 +73,11 @@
   - Glance: https://www.danielmartingonzalez.com/es/monitorizacion-del-sistema-con-glances/
 
 
-### Backup-Restore
+### Backup-Restore-docker
 
   - NOTA: esto solo hace backup del contenedor no de los volumenes, para saber si el contenedor tiene volumenes usar **docker inspect <nombre contenedor>** y buscar la sección llamada **Mounts**.
 
-  - Backup:
+  - Backup docker:
     - Buscar el id del docker id del que hacer backup **sudo docker ps −a**
     - **sudo docker commit −p <CONTAINER_ID> backup_grafana01**
     - **sudo docker save −o /media/DISCO_USB_EXT/backup_grafana01.tar backup_grafana01**
@@ -84,6 +86,12 @@
   - Restore:
     -Para restaurar **sudo docker load -i /media/DISCO_USB_EXT/backup_grafana01.tar**
     - Nos cargará la imagen y ahora con **docker run** lo instanciaremos
+
+### Backup-Restore-volumenes
+  - When you run postgres inside a docker container, it stores its data in something called a volume. The path in your screenshot is that of a volume. Volumes are meant be accessed only from containers. In your case, you can only access it from the container pgsql-0. You need to be logged in as root if your want to access it from the Linux VM directly.
+
+  - Here’s an alternative method for backing up your database. Use the following command: **docker exec pgsql-0 pg_dump -U postgres <database_name> > backup.sql**
+  This will run the pg_dump command “inside” the container called pgsql-0, and store the results in a file called backup.sql. You can restore the backup using the command: **docker exec -i <postgres_container_name> psql -U postgres -d <database_name> < backup.sql**
 
 
 ### Reinstalar (no se si pierde datos no volatiles, probado en un docker con datos volatiles)
