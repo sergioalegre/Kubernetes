@@ -58,7 +58,7 @@
 
     - Saber la IP:
       - **docker inspect -f '{{range .NetworkSettings.Networks}}{{.IPAddress}}{{end}}' <container_name_or_id>**
-      
+
 
 
   - **dockerfile:**
@@ -73,8 +73,9 @@
   - Glance: https://www.danielmartingonzalez.com/es/monitorizacion-del-sistema-con-glances/
 
 
-### Backup-Restore-docker
+### Backup-Restore
 
+  1: Backup/restore de DOCKER
   - NOTA: esto solo hace backup del contenedor no de los volumenes, para saber si el contenedor tiene volumenes usar **docker inspect <nombre contenedor>** y buscar la sección llamada **Mounts**.
 
   - Backup docker:
@@ -83,15 +84,29 @@
     - **sudo docker save −o /media/DISCO_USB_EXT/backup_grafana01.tar backup_grafana01**
     - ![Componentes Dockerfile](https://github.com/sergioalegre/Dockers/blob/main/pics/backup-dockers.jpg?raw=true)
 
-  - Restore:
-    -Para restaurar **sudo docker load -i /media/DISCO_USB_EXT/backup_grafana01.tar**
+  - Restore docker:
+    - Para restaurar **sudo docker load -i /media/DISCO_USB_EXT/backup_grafana01.tar**
     - Nos cargará la imagen y ahora con **docker run** lo instanciaremos
 
-### Backup-Restore-volumenes
+  2: Backup/restore de VOLUMENES
   - When you run postgres inside a docker container, it stores its data in something called a volume. The path in your screenshot is that of a volume. Volumes are meant be accessed only from containers. In your case, you can only access it from the container pgsql-0. You need to be logged in as root if your want to access it from the Linux VM directly.
 
-  - Here’s an alternative method for backing up your database. Use the following command: **docker exec pgsql-0 pg_dump -U postgres <database_name> > backup.sql**
+  3: Backup/restore de BBDD
+  - Ejemplo1: Here’s an alternative method for backing up your database. Use the following command: **docker exec pgsql-0 pg_dump -U postgres <database_name> > backup.sql**
   This will run the pg_dump command “inside” the container called pgsql-0, and store the results in a file called backup.sql. You can restore the backup using the command: **docker exec -i <postgres_container_name> psql -U postgres -d <database_name> < backup.sql**
+
+  - Ejemplo2 (Polyspace) https://es.mathworks.com/help/releases/R2021a/polyspace_bug_finder_access/gs/database-backup.html
+    - Backup: To ensure that your backup does not contain partial or corrupted data, stop docker(s) before starting the backup operation **docker stop app1DB app1Frontend**
+
+    Generate the database backup and save it to backup_db.sql: **docker exec app1DB pg_dumpall -U postgres > backup_db.sql**
+    The docker exec command runs the pg_dumpall utility inside the dockerDB container. The -U specifies superuser postgres. The output of pg_dumpall is then saved as backup_db.sql. Be aware that using pg_dumpall on large databases might generate files that exceed the maximum file size limit on some operating systems and can be time consuming.
+
+    Once you complete your backup, restart the APP: **docker start app1DB app1Frontend**
+    - Restore: stop docker(s) before starting the restore operation **docker stop app1DB app1Frontend**
+
+      Restore DB Backup **docker exec -i app1DB psql -U postgres postgres <backup_db.sql**
+
+      If you stored your backup in a compressed file, decompress the file, and then pipe its content to the docker exec command **gzip -cd backup_db.gz | docker exec -i app1DB -U postgres postgres**
 
 
 ### Reinstalar (no se si pierde datos no volatiles, probado en un docker con datos volatiles)
