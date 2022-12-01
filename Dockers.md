@@ -8,6 +8,8 @@
 
 [#Reinstalar](#Reinstalar)
 
+[#Registry](#Registry)
+
 
 ------------
 
@@ -126,3 +128,18 @@
 
   - step4. re-install portainer
     - **$docker run -d -p 9000:9000 --name portainer --restart always -v /var/run/docker.sock:/var/run/docker.sock -v/data/portainer/data:/data portainer/portainer**
+
+### Registry
+
+  - Docker Hub
+    - logarse **docker login**
+    - tag: **docker tag <nombre_imagen> sergioalegre/<nombre_imagen>:<version>**
+    - push: **docker push sergioalegre/<nombre_imagen>:<version>**
+    - (https://github.com/sergioalegre/Kubernetes/blob/main/pics/dockerhub.PNG?raw=true)
+
+  - Azure Container Registry (sergioregistry es el Login Server)
+    - logarse **az login**
+    - contexto: **az account set -s SUBSCRIPTION_ID** y **az acr login --name sergioregistry**
+    - tag: **docker tag <nombre_imagen> sergioregistry.azurecr.io/<nombre_imagen>:<version>**
+    - push: **docker push sergioregistry.azurecr.io/<nombre_imagen>:<version>**
+    - listar imagenes en el registry: **az acr repository list -n sergioregistry -o table**
