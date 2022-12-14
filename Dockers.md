@@ -135,7 +135,7 @@
     - logarse **docker login**
     - tag: **docker tag <nombre_imagen> sergioalegre/<nombre_imagen>:<version>**
     - push: **docker push sergioalegre/<nombre_imagen>:<version>**
-    - (https://github.com/sergioalegre/Kubernetes/blob/main/pics/dockerhub.PNG?raw=true)
+    - ![Ejemplo Registry](https://github.com/sergioalegre/Kubernetes/blob/main/pics/dockerhub.PNG?raw=true)
 
   - Azure Container Registry (sergioregistry es el Login Server)
     - logarse **az login**
