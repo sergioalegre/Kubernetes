@@ -32,6 +32,9 @@
   - **Imagenes:**
     - Listar ya descargadas y su TAG **docker images**
     - Tras personalizar una imagen com *commit* podemos crear una nueva imagen. Ejemplo: **docker commit id_imagen_que_hemos_personalizado nombre_nueva_imagen**
+    - Añadir un tag para subir al registry:
+      - **docker image tag imagen_actual sergioalegre/repositorio/imagen_nueva:v1**
+      - **docker push sergioalegre/repositorio/imagen_nueva:v1**
 
 
   - **Contenedores:**
