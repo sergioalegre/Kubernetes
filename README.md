@@ -7,7 +7,7 @@ REEMPLAZAR: Buscador-Ajax-similar-a-Google, TITULO, DESCRIPCION, DESCRIPCION2, D
 <br />
 <p align="center">
   <a href="https://github.com/sergioalegre/Kubernetes">
-    <img src="http://sergioalegre.es/logo.JPG" alt="Logo" width="80" height="80">
+    <img src="https://sergioalegre.es/logo.JPG" alt="Logo" width="80" height="80">
   </a>
 
   <h3 align="center"><!-- TITULO -->Kubernetes e IaC</h3>
@@ -16,7 +16,7 @@ REEMPLAZAR: Buscador-Ajax-similar-a-Google, TITULO, DESCRIPCION, DESCRIPCION2, D
     <!-- DESCRIPCION -->Apuntes de los cursos y practicas de Kubernetes e IaC
     <br />
     <a href="https://github.com/sergioalegre/Kubernetes">Explore the docs</a>
-    <!-- DEMO<a href="http://sergioalegre.es/Programacion/_BuscadorAJAX/">View Demo</a> -->
+    <!-- DEMO<a href="https://sergioalegre.es/Programacion/_BuscadorAJAX/">View Demo</a> -->
     ·
     <a href="https://github.com/sergioalegre/Kubernetes/issues">Report Bug</a>
     ·
